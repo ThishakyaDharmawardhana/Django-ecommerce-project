@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+actor Student
+actor Teacher
+actor Admin
+
+rectangle "Student and Teacher Management System" {
+    (Register Account) as UC1
+    (View Courses) as UC2
+    (Submit Assignment) as UC3
+    (Check Results) as UC4
+    (Manage Courses) as UC5
+    (Upload Materials) as UC6
+    (Grade Submissions) as UC7
+    (Manage Users) as UC8
+    (Manage Subjects) as UC9
+    (Maintain System Data) as UC10
+}
+
+Student --> UC1
+Student --> UC2
+Student --> UC3
+Student --> UC4
+
+Teacher --> UC5
+Teacher --> UC6
+Teacher --> UC7
+
+Admin --> UC8
+Admin --> UC9
+Admin --> UC10
+@enduml

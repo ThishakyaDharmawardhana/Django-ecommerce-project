@@ -1,0 +1,36 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <br />
+            <br />
+            <h2 class="text-center mb-4">Create Account</h2>
+            
+            <form method="POST" action="{% url 'register_user' %}">
+                {% csrf_token %}
+                
+                <!-- Display form errors -->
+                {% if form.errors %}
+                <div class="alert alert-danger">
+                    {{ form.errors }}
+                </div>
+                {% endif %}
+                
+                <!-- Render form fields -->
+                {{ form.as_p }}
+                
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                    <a class="btn btn-secondary" href="{% url 'login_user' %}">Already have an account? Login</a>
+                </div>
+            </form>
+            
+            <br />
+            <br />
+        </div>
+    </div>
+</div>
+{% endblock %}
+

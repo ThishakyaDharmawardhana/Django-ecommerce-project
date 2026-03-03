@@ -1,0 +1,19 @@
+@startuml
+actor Student
+participant "Web Browser" as Browser
+participant "Django Server" as Server
+participant "Database" as DB
+
+Student -> Browser: Open Assignment Submission Page
+Browser -> Server: Request assignment form
+Server -> DB: Fetch assignment details
+DB --> Server: Return details
+Server --> Browser: Display form
+
+Student -> Browser: Upload file and submit
+Browser -> Server: Send submission data
+Server -> DB: Save submission record
+DB --> Server: Confirmation
+Server --> Browser: Display success message
+@enduml
+

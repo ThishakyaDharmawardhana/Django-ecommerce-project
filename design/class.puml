@@ -1,0 +1,69 @@
+@startuml
+class User {
+    +user_id: int
+    +username: string
+    +email: string
+    +password: string
+    +role: string
+    +login()
+    +logout()
+}
+
+class Student {
+    +student_id: int
+    +view_courses()
+    +submit_assignment()
+    +check_results()
+}
+
+class Teacher {
+    +teacher_id: int
+    +manage_courses()
+    +upload_materials()
+    +grade_submissions()
+}
+
+class Admin {
+    +admin_id: int
+    +manage_users()
+    +manage_subjects()
+    +maintain_system_data()
+}
+
+class Course {
+    +course_id: int
+    +course_name: string
+    +description: string
+    +assign_teacher()
+}
+
+class Assignment {
+    +assignment_id: int
+    +title: string
+    +due_date: date
+    +upload_assignment()
+    +grade_assignment()
+}
+
+class Submission {
+    +submission_id: int
+    +submitted_date: date
+    +marks: float
+}
+
+class Result {
+    +result_id: int
+    +grade: string
+    +view_result()
+}
+
+User <|-- Student
+User <|-- Teacher
+User <|-- Admin
+
+Teacher "1" --> "many" Course
+Student "many" --> "many" Course
+Course "1" --> "many" Assignment
+Assignment "1" --> "many" Submission
+Submission "1" --> "1" Result
+@enduml
